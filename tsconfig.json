@@ -17,7 +17,21 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-ode-sijil": [
+        "dist/ngx-ode-sijil"
+      ],
+      "ngx-ode-sijil/*": [
+        "dist/ngx-ode-sijil/*"
+      ],
+      "ngx-ode-ui": [
+        "dist/ngx-ode-ui"
+      ],
+      "ngx-ode-ui/*": [
+        "dist/ngx-ode-ui/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

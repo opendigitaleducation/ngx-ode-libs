@@ -2,5 +2,76 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "ngx-ode-sijil": {
+      "projectType": "library",
+      "root": "projects/ngx-ode-sijil",
+      "sourceRoot": "projects/ngx-ode-sijil/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-ode-sijil/tsconfig.lib.json",
+            "project": "projects/ngx-ode-sijil/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-ode-sijil/src/test.ts",
+            "tsConfig": "projects/ngx-ode-sijil/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-ode-sijil/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-ode-sijil/tsconfig.lib.json",
+              "projects/ngx-ode-sijil/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngx-ode-ui": {
+      "projectType": "library",
+      "root": "projects/ngx-ode-ui",
+      "sourceRoot": "projects/ngx-ode-ui/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-ode-ui/tsconfig.lib.json",
+            "project": "projects/ngx-ode-ui/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-ode-ui/src/test.ts",
+            "tsConfig": "projects/ngx-ode-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-ode-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-ode-ui/tsconfig.lib.json",
+              "projects/ngx-ode-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }},
+  "defaultProject": "ngx-ode-sijil"
 }
