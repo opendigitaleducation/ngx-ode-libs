@@ -48,6 +48,7 @@ export * from './lib/pipes/limit.pipe';
 export * from './lib/pipes/localizedDate.pipe';
 export * from './lib/pipes/orderBy.pipe';
 export * from './lib/pipes/store.pipe';
+export * from './lib/pipes/length.pipe';
 
 export * from './lib/utils/math';
 export * from './lib/utils/string';

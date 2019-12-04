@@ -1,6 +1,6 @@
 {
   "name": "ngx-ode-ui",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "peerDependencies": {
     "@angular/common": "^8.2.14",
     "@angular/core": "^8.2.14"

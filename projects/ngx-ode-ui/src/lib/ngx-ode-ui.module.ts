@@ -45,6 +45,7 @@ import { EllipsisComponent } from './components/ellipsis/ellipsis.component';
 import { OdeComponent } from './components/OdeComponent';
 import { KeysPipe } from './pipes/keys.pipe';
 import { ObjectURLDirective } from './directives/object-url.directive';
+import { LengthPipe } from './pipes/length.pipe';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { ObjectURLDirective } from './directives/object-url.directive';
     StorePipe,
     LocalizedDatePipe,
     BytesPipe,
-    KeysPipe
+    KeysPipe,
+    LengthPipe
   ],
   imports: [
     CommonModule,
@@ -141,7 +143,8 @@ import { ObjectURLDirective } from './directives/object-url.directive';
     StorePipe,
     LocalizedDatePipe,
     BytesPipe,
-    KeysPipe
+    KeysPipe,
+    LengthPipe
   ],
   providers: [InputFileService],
   entryComponents: [SimpleSelectComponent, MessageBoxComponent]
