@@ -33,6 +33,13 @@ export * from './lib/components/upload-files/upload-files.component';
 export * from './lib/components/value-editable/simple-select.component';
 export * from './lib/components/wizard/wizard.component';
 
+export * from './lib/directives/dynamic-component/dynamic-component.directive';
+export * from './lib/directives/dynamic-component/component-descriptor.model';
+export * from './lib/directives/anchor.directive';
+export * from './lib/directives/drag-and-drop-files.directive';
+export * from './lib/directives/dynamictemplate.directive';
+export * from './lib/directives/object-url.directive';
+
 export * from './lib/pipes/bytes.pipe';
 export * from './lib/pipes/filter.pipe';
 export * from './lib/pipes/flattenObjArray.pipe';

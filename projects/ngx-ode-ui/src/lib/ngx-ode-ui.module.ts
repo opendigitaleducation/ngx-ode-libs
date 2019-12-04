@@ -44,6 +44,7 @@ import { PagerComponent } from './components/table/pager.component';
 import { EllipsisComponent } from './components/ellipsis/ellipsis.component';
 import { OdeComponent } from './components/OdeComponent';
 import { KeysPipe } from './pipes/keys.pipe';
+import { ObjectURLDirective } from './directives/object-url.directive';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     DynamicTemplateDirective,
     DynamicComponentDirective,
     DragAndDropFilesDirective,
+    ObjectURLDirective,
     // pipes
     FilterPipe,
     FlattenObjectArrayPipe,
@@ -130,6 +132,7 @@ import { KeysPipe } from './pipes/keys.pipe';
     DynamicTemplateDirective,
     DynamicComponentDirective,
     DragAndDropFilesDirective,
+    ObjectURLDirective,
     // pipes
     FilterPipe,
     FlattenObjectArrayPipe,
