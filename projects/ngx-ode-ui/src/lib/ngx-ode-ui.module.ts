@@ -143,7 +143,7 @@ import { LengthPipe } from './pipes/length.pipe';
     KeysPipe,
     LengthPipe
   ],
-  providers: [InputFileService],
+  providers: [InputFileService, OrderPipe],
   entryComponents: [SimpleSelectComponent, MessageBoxComponent]
 })
 export class NgxOdeUiModule {
