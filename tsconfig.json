@@ -30,6 +30,12 @@
       ],
       "ngx-ode-ui/*": [
         "dist/ngx-ode-ui/*"
+      ],
+      "ngx-ode-core": [
+        "dist/ngx-ode-core"
+      ],
+      "ngx-ode-core/*": [
+        "dist/ngx-ode-core/*"
       ]
     }
   },

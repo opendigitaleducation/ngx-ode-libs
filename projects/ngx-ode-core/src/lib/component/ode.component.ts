@@ -1,9 +1,10 @@
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Logger } from './Logger';
-import { OnInit, OnDestroy, AfterViewInit, OnChanges, AfterContentInit, Injector, Component, Type, ChangeDetectorRef, InjectionToken } from '@angular/core';
+import { OnInit, OnDestroy, AfterViewInit, OnChanges, AfterContentInit, Injector,
+  Component, Type, ChangeDetectorRef, InjectionToken } from '@angular/core';
+import { Logger } from '../utils/Logger';
 
-export const COMPONENT_LIVECYCLE_DEBUG_MODE = new InjectionToken<number>('debugComponentLivecycle');
+export const COMPONENT_LIFECYCLE_DEBUG_MODE = new InjectionToken<number>('debugComponentLifecycle');
 
 @Component({
     template: ''
@@ -17,7 +18,7 @@ export class OdeComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges
     private debugComponentLifeCycle: number;
 
     constructor(public injector: Injector ) {
-        this.debugComponentLifeCycle = injector.get(COMPONENT_LIVECYCLE_DEBUG_MODE);
+        this.debugComponentLifeCycle = injector.get(COMPONENT_LIFECYCLE_DEBUG_MODE);
         this.logger = injector.get<Logger>(Logger as Type<Logger>);
         this.route = injector.get<ActivatedRoute>(ActivatedRoute as Type<ActivatedRoute>);
         this.router = injector.get<Router>(Router as Type<Router>);

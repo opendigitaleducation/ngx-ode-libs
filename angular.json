@@ -72,6 +72,41 @@
           }
         }
       }
+    },
+    "ngx-ode-core": {
+      "projectType": "library",
+      "root": "projects/ngx-ode-core",
+      "sourceRoot": "projects/ngx-ode-core/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-ode-core/tsconfig.lib.json",
+            "project": "projects/ngx-ode-core/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-ode-core/src/test.ts",
+            "tsConfig": "projects/ngx-ode-core/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-ode-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-ode-core/tsconfig.lib.json",
+              "projects/ngx-ode-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-ode-sijil"
 }
