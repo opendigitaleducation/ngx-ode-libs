@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, Injector } from '@angular/core';
 import {InputFileService} from '../../services/inputFile.service';
 

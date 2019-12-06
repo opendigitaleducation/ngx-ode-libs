@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { ChangeDetectionStrategy, Component, Input, OnDestroy, OnInit, Injector } from '@angular/core';
 import { SpinnerService } from '../../services/spinner.service';
 
@@ -8,7 +8,7 @@ import { SpinnerService } from '../../services/spinner.service';
     templateUrl: './spinner-cube.component.html',
     styleUrls: ['./spinner-cube.component.scss']
 })
-export class SpinnerCubeComponent extends OdeComponent implements OnInit, OnDestroy {
+export class SpinnerCubeComponent extends OdeComponent implements OnInit {
 
     @Input('waitingFor')
     set loadingProp(prop: string) {

@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild, Injector } from '@angular/core';
 import {Observable, Subject, Subscription} from 'rxjs';
 import {debounceTime, distinctUntilChanged} from 'rxjs/operators';

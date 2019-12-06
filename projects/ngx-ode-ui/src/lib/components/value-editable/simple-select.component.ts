@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, Injector } from '@angular/core';
 
 

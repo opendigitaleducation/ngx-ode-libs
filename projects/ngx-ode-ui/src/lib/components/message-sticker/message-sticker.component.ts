@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { Component, EventEmitter, Input, OnInit, ViewChild, Injector } from '@angular/core';
 import {icons, MessageBoxComponent, MessageType} from '../message-box/message-box.component';
 import { DynamicComponentDirective } from '../../directives/dynamic-component/dynamic-component.directive';

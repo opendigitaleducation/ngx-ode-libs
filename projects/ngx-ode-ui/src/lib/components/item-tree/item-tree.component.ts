@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild, Injector } from '@angular/core';
 
 @Component({

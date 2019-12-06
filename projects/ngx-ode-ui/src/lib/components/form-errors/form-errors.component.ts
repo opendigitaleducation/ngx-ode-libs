@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { Component, Input, Injector } from '@angular/core';
 import {AbstractControl} from '@angular/forms';
 

@@ -1,33 +1,16 @@
 import { Component, ElementRef, forwardRef, Input, Injector } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {SelectOption} from '../multi-select/multi-select.component';
-import { OdeComponent } from '../OdeComponent';
-
-const css = {
-    select: 'form-select',
-    openedSelect: 'form-select--opened',
-    list: 'form-select__list',
-    option: 'form-select__options',
-    selectedOption: 'form-select__options--selected'
-};
-export const monoSelectLocators = {
-    select: `.lct-${css.select}`,
-    list: `.lct-${css.list}`,
-    option: `.lct-${css.option}`,
-    selectedOption: `.lct-${css.selectedOption}`
-};
-
+import { OdeComponent } from 'ngx-ode-core';
 
 @Component({
     selector: 'ode-mono-select',
     templateUrl: './mono-select.component.html',
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => MonoSelectComponent),
-            multi: true
-        }
-    ],
+    providers: [{
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MonoSelectComponent),
+      multi: true
+    }],
     host: {
         '(document:click)': 'onClickOnDocument($event)',
         '(click)': 'onClickOnHost()'
@@ -61,7 +44,7 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
 
     public onClickOnDocument(event: MouseEvent) {
         if (this.opened &&
-            !this.elementRef.nativeElement.querySelector(monoSelectLocators.select).contains(event.target)) {
+            !this.elementRef.nativeElement.querySelector('.lct-form-select').contains(event.target)) {
             this.opened = false;
         }
         return true;

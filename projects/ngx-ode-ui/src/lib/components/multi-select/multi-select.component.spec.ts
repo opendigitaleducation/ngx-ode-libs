@@ -1,9 +1,11 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-import {multiSelectClasses as classes, MultiSelectComponent, multiSelectLocators as locators, SelectOption} from './multi-select.component';
+import {MultiSelectComponent, SelectOption} from './multi-select.component';
 import {Component, DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {SijilModule} from 'sijil';
+import {NgxOdeSijilModule} from 'ngx-ode-sijil';
+import { COMPONENT_LIFECYCLE_DEBUG_MODE } from 'ngx-ode-core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('MultiSelectComponent', () => {
     let component: MultiSelectComponent<any>;
@@ -17,8 +19,12 @@ describe('MultiSelectComponent', () => {
                 MockFormComponent
             ],
             imports: [
-                SijilModule.forRoot(),
-                FormsModule
+                NgxOdeSijilModule.forRoot(),
+                FormsModule,
+                RouterTestingModule
+            ],
+            providers: [
+              {provide: COMPONENT_LIFECYCLE_DEBUG_MODE, useValue: 1}
             ]
 
         }).compileComponents();
@@ -35,21 +41,21 @@ describe('MultiSelectComponent', () => {
     it('should display the given options', () => {
         component.options = [{label: '1', value: 1}, {label: '2', value: 2}];
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelectorAll(locators.optionsItem).length).toBe(2);
+        expect(fixture.nativeElement.querySelectorAll('.lct-multi-select__options-item').length).toBe(2);
     });
 
     it('should be initially closed', () => {
         expect(component.isOptionsVisible).toBeFalsy();
-        expect(getToggle(fixture).classes[classes.toggleActive]).toBeFalsy();
-        expect(getOptionsContainer(fixture).classes[classes.containerActive]).toBeFalsy();
+        expect(getToggle(fixture).classes['multi-select__toggle--active']).toBeFalsy();
+        expect(getOptionsContainer(fixture).classes['multi-select__options-container--active']).toBeFalsy();
     });
 
     it('should be opened when user click on the toggle', () => {
         clickOn(getToggle(fixture));
         fixture.detectChanges();
         expect(component.isOptionsVisible).toBeTruthy();
-        expect(getToggle(fixture).classes[classes.toggleActive]).toBeTruthy();
-        expect(getOptionsContainer(fixture).classes[classes.containerActive]).toBeTruthy();
+        expect(getToggle(fixture).classes['multi-select__toggle--active']).toBeTruthy();
+        expect(getOptionsContainer(fixture).classes['multi-select__options-container--active']).toBeTruthy();
     });
 
     describe('with primitive values', () => {
@@ -187,20 +193,20 @@ describe('MultiSelectComponent', () => {
 
 
 function getToggle(fixture: ComponentFixture<MockFormComponent<any>>): DebugElement {
-    return fixture.debugElement.query(By.css(locators.toggle));
+    return fixture.debugElement.query(By.css('.lct-multi-select__toggle'));
 }
 
 function getOptionsContainer(fixture: ComponentFixture<MockFormComponent<any>>): DebugElement {
-    return fixture.debugElement.query(By.css(locators.container));
+    return fixture.debugElement.query(By.css('.lct-multi-select__options-container'));
 }
 
 function getOptionByIndex(fixture: ComponentFixture<MockFormComponent<any>>, index: number): DebugElement {
-    return fixture.debugElement.queryAll(By.css(locators.optionsItem))[index];
+    return fixture.debugElement.queryAll(By.css('.lct-multi-select__options-item'))[index];
 }
 
 
 function getAllPreviewItems(fixture: ComponentFixture<MockFormComponent<any>>): Array<DebugElement> {
-    return fixture.debugElement.queryAll(By.css(locators.previewItem));
+    return fixture.debugElement.queryAll(By.css('.lct-multi-select__options-preview-item'));
 }
 
 function getPreviewItemByIndex(fixture: ComponentFixture<MockFormComponent<any>>, index: number): DebugElement {
@@ -208,7 +214,7 @@ function getPreviewItemByIndex(fixture: ComponentFixture<MockFormComponent<any>>
 }
 
 function isOptionSelected(option: DebugElement): boolean {
-    return option.classes[classes.optionsItemSelected];
+    return option.classes['multi-select__options-item--selected'];
 }
 
 function clickOn(el: DebugElement): void {
@@ -218,11 +224,12 @@ function clickOn(el: DebugElement): void {
 @Component({
     selector: `mock-form`,
     template: `
-        <multi-select [(ngModel)]="model"
-                      [options]="options"
-                      [trackByFn]="trackByFn"
-                      [label]="label"
-                      [preview]="preview"></multi-select>`
+        <ode-multi-select [(ngModel)]="model"
+                          [options]="options"
+                          [trackByFn]="trackByFn"
+                          [label]="label"
+                          [preview]="preview">
+        </ode-multi-select>`
 })
 class MockFormComponent<K> {
     model: any;

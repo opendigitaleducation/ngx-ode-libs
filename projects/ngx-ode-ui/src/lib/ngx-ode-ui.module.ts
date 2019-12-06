@@ -42,7 +42,6 @@ import { LabelsService } from './services/labels.service';
 import { SpinnerCubeComponent } from './components/spinner-cube/spinner-cube.component';
 import { PagerComponent } from './components/table/pager.component';
 import { EllipsisComponent } from './components/ellipsis/ellipsis.component';
-import { OdeComponent } from './components/OdeComponent';
 import { KeysPipe } from './pipes/keys.pipe';
 import { ObjectURLDirective } from './directives/object-url.directive';
 import { LengthPipe } from './pipes/length.pipe';
@@ -76,7 +75,6 @@ import { LengthPipe } from './pipes/length.pipe';
     SpinnerCubeComponent,
     PagerComponent,
     EllipsisComponent,
-    OdeComponent,
     // directives
     AnchorDirective,
     DynamicTemplateDirective,
@@ -128,7 +126,6 @@ import { LengthPipe } from './pipes/length.pipe';
     SpinnerCubeComponent,
     PagerComponent,
     EllipsisComponent,
-    OdeComponent,
     // directives
     AnchorDirective,
     DynamicTemplateDirective,

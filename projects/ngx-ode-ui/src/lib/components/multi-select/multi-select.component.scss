@@ -1,30 +1,36 @@
 :host {
   position: relative;
 }
-.${css.toggle} {
+
+.multi-select__toggle {
   min-width: 210px;
   outline: none;
   background-color: #f2f2f2;
 }
-.${css.toggle}:after {
-                content: '▼';
-                float: right;
-                margin-left: 10px;
-                transition: transform 0.25s, color 0.25s;
-              }
-.${css.toggle}:hover:after {
-                color: white;
-              }
-.${css.toggle}:hover,
-              .${css.toggle}.${css.toggleActive} {
+
+.multi-select__toggle:after {
+  content: '▼';
+  float: right;
+  margin-left: 10px;
+  transition: transform 0.25s, color 0.25s;
+}
+
+.multi-select__toggle:hover:after {
+  color: white;
+}
+
+.multi-select__toggle:hover,
+.multi-select__toggle.multi-select__toggle--active {
   background-color: #ff8352;
   color: white;
 }
-.${css.toggle}.${css.toggleActive}:after {
-                                    transform: rotate(180deg);
-                                    color: white;
-                                  }
-.${css.container} {
+
+.multi-select__toggle.multi-select__toggle--active:after {
+  transform: rotate(180deg);
+  color: white;
+}
+
+.multi-select__options-container {
   display: none;
   position: absolute;
   z-index: 2;
@@ -36,17 +42,20 @@
   padding: 0 10px 0 20px;
   min-width: 160px;
 }
-.${css.container}.${css.containerActive} {
+
+.multi-select__options-container.multi-select__options-container--active {
   display: block;
 }
-.${css.options} {
+
+.multi-select__options {
   list-style: none;
   padding: 0;
   overflow-y: scroll;
   max-height: 200px;
   margin-bottom: 10px;
 }
-.${css.optionsItem} {
+
+.multi-select__options-item {
   white-space: nowrap;
   cursor: pointer;
   line-height: 25px;
@@ -55,15 +64,18 @@
   margin-bottom: 5px;
   padding: 0 10px;
 }
-.${css.optionsItem}.${css.optionsItemSelected} {
+
+.multi-select__options-item.multi-select__options-item--selected {
   color: white;
   background-color: #217b9e;
 }
-.${css.preview} {
+
+.multi-select__options-preview {
   color: white;
   margin: 10px 0;
 }
-.${css.previewItem} {
+
+.multi-select__options-preview-item {
   border: 1px solid #217b9e;
   display: inline-block;
   font-size: 0.8em;
@@ -77,22 +89,25 @@
   line-height: 1.5em;
   color: white;
 }
-.${css.previewItem}:hover {
-                     background-color: #61bbde;
-                     border-color: white;
-                   }
-.${css.previewItemDeleteIcon} {
+
+.multi-select__options-preview-item:hover {
+  background-color: #61bbde;
+  border-color: white;
+}
+
+.multi-select__options-preview-item-delete-icon {
   opacity: 0;
   transition: opacity 0.25s;
   float: right;
   padding-left: 10px;
 }
-.${css.previewItem}:hover .${css.previewItemDeleteIcon} {
+
+.multi-select__options-preview-item:hover .multi-select__options-preview-item-delete-icon {
   opacity: 1;
 }
-.${css.actions} {
+.multi-select__options-actions {
   margin-top: 10px;
 }
-.${css.actionsItem}:hover {
-                     background: #ffccb8;
-                   }
+.multi-select__options-actions-item:hover {
+  background: #ffccb8;
+}

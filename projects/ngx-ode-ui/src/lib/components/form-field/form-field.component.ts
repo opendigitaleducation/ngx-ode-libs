@@ -1,5 +1,5 @@
 import { Component, Input, Injector } from '@angular/core';
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 
 @Component({
   selector: 'ode-form-field',

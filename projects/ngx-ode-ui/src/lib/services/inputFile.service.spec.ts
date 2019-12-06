@@ -14,8 +14,8 @@ describe('InputFileService', () => {
     describe('validateFiles', () => {
         it('should return [file] when given FileList file1.jpg, maxFilesNumber 1 and allowedExtensions jpg)', () => {
             const blob = new Blob([''], { type: 'text/html' });
-            blob.name = 'file1.jpg';
-            const file = blob as File;
+            const file = new File([blob], 'file1.jpg', {type: blob.type});
+
             const fileList = {
                 0: file,
                 length: 1,
@@ -29,18 +29,16 @@ describe('InputFileService', () => {
             expect(resFiles).toEqual([file]);
         });
 
-        it('should return [file1, file2, file3] when given FileList file1.bmp, file2.jpg, file3.png, maxFilesNumber 3 and allowedExtensions jpg, png, bmp)', () => {
+        it(`should return [file1, file2, file3] when given FileList file1.bmp, file2.jpg, file3.png, maxFilesNumber 3
+            and allowedExtensions jpg, png, bmp)`, () => {
             const blob1 = new Blob([''], { type: 'text/html' });
-            blob1.name = 'file1.bmp';
-            const file1 = blob1 as File;
+            const file1 = new File([blob1], 'file1.bmp', {type: blob1.type});
 
             const blob2 = new Blob([''], { type: 'text/html' });
-            blob2.name = 'file2.jpg';
-            const file2 = blob2 as File;
+            const file2 = new File([blob2], 'file2.jpg', {type: blob2.type});
 
             const blob3 = new Blob([''], { type: 'text/html' });
-            blob3.name = 'file3.png';
-            const file3 = blob3 as File;
+            const file3 = new File([blob3], 'file3.png', {type: blob3.type});
 
             const fileList = {
                 0: file1,
@@ -57,14 +55,13 @@ describe('InputFileService', () => {
             expect(resFiles).toEqual([file1, file2, file3]);
         });
 
-        it('should throw "Only 1 file(s) allowed" error when given FileList file1.bmp, file2.jpg, maxFilesNumber 1 and allowedExtensions bmp, jpg, png)', () => {
+        it(`should throw "Only 1 file(s) allowed" error when given FileList file1.bmp, file2.jpg, maxFilesNumber 1
+            and allowedExtensions bmp, jpg, png)`, () => {
             const blob1 = new Blob([''], { type: 'text/html' });
-            blob1.name = 'file1.bmp';
-            const file1 = blob1 as File;
+            const file1 = new File([blob1], 'file1.bmp', {type: blob1.type});
 
             const blob2 = new Blob([''], { type: 'text/html' });
-            blob2.name = 'file2.jpg';
-            const file2 = blob2 as File;
+            const file2 = new File([blob2], 'file2.jpg', {type: blob2.type});
 
             const fileList = {
                 0: file1,
@@ -82,10 +79,10 @@ describe('InputFileService', () => {
             expect(resError).toBe(`Only ${maxFilesNumber} file(s) allowed`);
         });
 
-        it('should throw "Extension not allowed. Allowed extensions: [jpg]" error when given FileList file1.bmp, maxFilesNumber 1 and allowedExtensions jpg)', () => {
+        it(`should throw "Extension not allowed. Allowed extensions: [jpg]" error when given FileList file1.bmp, maxFilesNumber 1
+            and allowedExtensions jpg)`, () => {
             const blob1 = new Blob([''], { type: 'text/html' });
-            blob1.name = 'file1.bmp';
-            const file1 = blob1 as File;
+            const file1 = new File([blob1], 'file1.bmp', {type: blob1.type});
 
             const fileList = {
                 0: file1,

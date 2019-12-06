@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Injector } from '@angular/core';
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 
 export type MessageType = 'info' | 'success' | 'warning' | 'danger';
 

@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, Injector } from '@angular/core';
 import {LabelsService} from '../../services/labels.service';
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 
 /* If you need to use multi-combo in a form you should give a look to the MultiSelectComponent. */
 

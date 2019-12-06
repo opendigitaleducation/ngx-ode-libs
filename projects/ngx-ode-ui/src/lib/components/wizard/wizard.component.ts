@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import {
   AfterContentInit,
   Component,
@@ -115,7 +115,7 @@ export class StepComponent {
         }
     `]
 })
-export class WizardComponent extends OdeComponent implements AfterContentInit, OnDestroy {
+export class WizardComponent extends OdeComponent implements AfterContentInit {
     @Output() cancel: EventEmitter<{}> = new EventEmitter();
     @Output() previousStep: EventEmitter<number> = new EventEmitter();
     @Output() nextStep: EventEmitter<number> = new EventEmitter();

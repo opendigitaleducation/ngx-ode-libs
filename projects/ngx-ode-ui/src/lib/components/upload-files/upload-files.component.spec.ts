@@ -1,8 +1,10 @@
 import {UploadFilesComponent} from './upload-files.component';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {Directive, Input} from '@angular/core';
-import {SijilModule} from 'sijil';
+import {NgxOdeSijilModule} from 'ngx-ode-sijil';
 import {InputFileService} from '../../services/inputFile.service';
+import { COMPONENT_LIFECYCLE_DEBUG_MODE } from 'ngx-ode-core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('UploadFilesComponent', () => {
     let component: UploadFilesComponent;
@@ -11,8 +13,11 @@ describe('UploadFilesComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [UploadFilesComponent, MockDragAndDropFilesDirective],
-            providers: [InputFileService],
-            imports: [SijilModule.forRoot()]
+            providers: [
+              InputFileService,
+              {provide: COMPONENT_LIFECYCLE_DEBUG_MODE, useValue: 1}
+            ],
+            imports: [NgxOdeSijilModule.forRoot(), RouterTestingModule]
         }).compileComponents();
 
         fixture = TestBed.createComponent(UploadFilesComponent);

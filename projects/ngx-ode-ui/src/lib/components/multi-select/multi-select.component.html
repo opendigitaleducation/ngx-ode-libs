@@ -1,29 +1,29 @@
 <button type="button"
         (click)="toggleOptionsVisibility()" [disabled]="isDisabled"
-        class="${css.toggle} lct-${css.toggle}"
-        [ngClass]="{'${css.toggleActive}': isOptionsVisible}">{{label | translate}}</button>
-<div class="${css.container} lct-${css.container}"
-     [ngClass]="{'${css.containerActive}': isOptionsVisible}">
-  <div class="${css.actions}">
+        class="multi-select__toggle lct-multi-select__toggle"
+        [ngClass]="{'multi-select__toggle--active': isOptionsVisible}">{{label | translate}}</button>
+<div class="multi-select__options-container lct-multi-select__options-container"
+     [ngClass]="{'multi-select__options-container--active': isOptionsVisible}">
+  <div class="multi-select__options-actions">
     <button type="button"
-            class="${css.actionsItem}"
+            class="multi-select__options-actions-item"
             (click)="deselectAll()">{{'ux.multiselect.deselect-all' | translate}}</button>
   </div>
-  <ul class="${css.options} lct-${css.options}">
-    <li class="${css.optionsItem} lct-${css.optionsItem}"
+  <ul class="multi-select__options lct-multi-select__options">
+    <li class="multi-select__options-item lct-multi-select__options-item"
         *ngFor="let option of options"
         (click)="optionClicked(option)"
-        [ngClass]="{'${css.optionsItemSelected}': isSelected(option)}">{{option.label | translate}}</li>
+        [ngClass]="{'multi-select__options-item--selected': isSelected(option)}">{{option.label | translate}}</li>
   </ul>
 </div>
-<div class="${css.preview} lct-${css.preview}" *ngIf="preview">
+<div class="multi-select__options-preview lct-multi-select__options-preview" *ngIf="preview">
   <ng-container *ngFor="let option of options">
     <button *ngIf="isSelected(option)"
             type="button"
-            class="${css.previewItem} lct-${css.previewItem}"
+            class="multi-select__options-preview-item lct-multi-select__options-preview-item"
             (click)="optionClicked(option)">
       <span>{{option.label | translate}}</span>
-      <i class="${css.previewItemDeleteIcon} fa fa-trash is-size-5"></i>
+      <i class="multi-select__options-preview-item-delete-icon fa fa-trash is-size-5"></i>
     </button>
   </ng-container>
 </div>

@@ -1,4 +1,4 @@
-import { OdeComponent } from '../OdeComponent';
+import { OdeComponent } from 'ngx-ode-core';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output, Injector } from '@angular/core';
 import {BundlesService} from 'ngx-ode-sijil';
 
