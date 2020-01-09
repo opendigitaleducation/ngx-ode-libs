@@ -4,7 +4,7 @@
     <ng-content></ng-content>
   </div>
   <div class="lightbox-confirm-action">
-    <button (click)="onConfirm.emit()" class="confirm">{{ 'confirm' | translate }}</button>
-    <button (click)="onCancel.emit()" class="cancel">{{ 'cancel' | translate }}</button>
+    <button (click)="onConfirm.emit()" class="confirm">{{ confirmText | translate }}</button>
+    <button (click)="onCancel.emit()" class="cancel">{{ cancelText | translate }}</button>
   </div>
 </ode-lightbox>
