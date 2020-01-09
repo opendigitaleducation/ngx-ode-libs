@@ -12,6 +12,7 @@ export interface SelectOption<K> {
 @Component({
     selector: 'ode-multi-select',
     templateUrl: './multi-select.component.html',
+    styleUrls: ['./multi-select.component.scss'],
     providers: [{
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => MultiSelectComponent),
