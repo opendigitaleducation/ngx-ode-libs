@@ -1,0 +1,9 @@
+node:
+  image: opendigitaleducation/node:12-alpine
+  working_dir: /home/node/app
+  net: host
+  volumes:
+    - ./:/home/node/app
+    - ~/.npm:/.npm
+  environment:
+    - NG_CLI_ANALYTICS=false

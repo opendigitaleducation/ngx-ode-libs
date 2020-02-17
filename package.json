@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-ngx-ode-core": "ng build ngx-ode-core",
+    "build-ngx-ode-sijil": "ng build ngx-ode-sijil",
+    "build-ngx-ode-ui": "ng build ngx-ode-ui",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

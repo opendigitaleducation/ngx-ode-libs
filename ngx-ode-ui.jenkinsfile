@@ -1,0 +1,31 @@
+#!/usr/bin/env groovy
+
+pipeline {
+  agent any
+  environment {
+    LIB_NAME='ngx-ode-ui'
+  }
+  stages {
+    stage('Init') {
+      steps {
+        checkout scm
+        sh './build.sh clean'
+        sh './build.sh init'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh "./build.sh build $LIB_NAME"
+      }
+    }
+    stage('Publish') {
+      steps {
+        configFileProvider([configFile(fileId: '.npmrc-infra-front', variable: 'NPMRC')]) {
+          sh "cp $NPMRC dist/$LIB_NAME/.npmrc"
+          sh "./build.sh publish $LIB_NAME"
+        }
+      }
+    }
+  }
+}
+
