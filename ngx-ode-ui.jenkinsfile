@@ -3,6 +3,8 @@
 pipeline {
   agent any
   environment {
+    REQUIRED_LIB1='ngx-ode-core'
+    REQUIRED_LIB2='ngx-ode-sijil'
     LIB_NAME='ngx-ode-ui'
   }
   stages {
@@ -15,6 +17,8 @@ pipeline {
     }
     stage('Build') {
       steps {
+        sh "./build.sh build $REQUIRED_LIB1"
+        sh "./build.sh build $REQUIRED_LIB2"
         sh "./build.sh build $LIB_NAME"
       }
     }
