@@ -11,7 +11,7 @@ export class SpinnerService {
     private loading = new Set<any>();
     private timers = new Map<any, number>();
 
-    private _trigger = new Subject();
+    private _trigger = new Subject<any>();
     get trigger() {
         return this._trigger;
     }
