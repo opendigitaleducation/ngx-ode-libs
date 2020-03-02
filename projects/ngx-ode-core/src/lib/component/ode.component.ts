@@ -1,7 +1,7 @@
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OnInit, OnDestroy, AfterViewInit, OnChanges, AfterContentInit, Injector,
-  Component, Type, ChangeDetectorRef, InjectionToken } from '@angular/core';
+  Component, Type, ChangeDetectorRef, InjectionToken, SimpleChanges } from '@angular/core';
 import { Logger } from '../utils/Logger';
 
 export const COMPONENT_LIFECYCLE_DEBUG_MODE = new InjectionToken<number>('debugComponentLifecycle');
@@ -44,7 +44,7 @@ export class OdeComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges
         }
     }
 
-    ngOnChanges(changes: import('@angular/core').SimpleChanges): void {
+    ngOnChanges(changes: SimpleChanges): void {
     }
 
     ngAfterContentInit(): void {
