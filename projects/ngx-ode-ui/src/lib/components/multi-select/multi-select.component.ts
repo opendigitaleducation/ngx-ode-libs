@@ -59,6 +59,15 @@ export class MultiSelectComponent<K> extends OdeComponent implements ControlValu
         this.onChange(this.model);
     }
 
+    public selectAll(): void {
+      this.options.forEach(option => {
+        if (!this.model.includes(option.value)) {
+          this.model.push(option.value);
+        }
+      });
+      this.onChange(this.model);
+    }
+
     public deselectAll(): void {
         this.model = [];
         this.onChange(this.model);

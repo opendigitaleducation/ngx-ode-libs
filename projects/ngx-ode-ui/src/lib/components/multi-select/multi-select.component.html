@@ -7,6 +7,9 @@
   <div class="multi-select__options-actions">
     <button type="button"
             class="multi-select__options-actions-item"
+            (click)="selectAll()">{{'ux.multiselect.select-all' | translate}}</button>
+    <button type="button"
+            class="multi-select__options-actions-item"
             (click)="deselectAll()">{{'ux.multiselect.deselect-all' | translate}}</button>
   </div>
   <ul class="multi-select__options lct-multi-select__options">

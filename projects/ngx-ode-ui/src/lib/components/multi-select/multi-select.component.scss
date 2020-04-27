@@ -108,6 +108,10 @@
 .multi-select__options-actions {
   margin-top: 10px;
 }
-.multi-select__options-actions-item:hover {
-  background: #ffccb8;
+.multi-select__options-actions-item {
+  margin-bottom: 3px;
+  min-width: 136px;
+  &:hover {
+    background: #ffccb8;
+  }
 }
