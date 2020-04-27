@@ -77,6 +77,8 @@ export class ItemTreeComponent<T> extends OdeComponent implements OnInit {
         const idx = this.unfolded.indexOf(item);
         if (!this.disableOpener && idx < 0) {
             this.unfolded.push(item);
+        } else {
+          this.unfolded.splice(idx, 1);
         }
         this.bubbleSelect(item);
     }
