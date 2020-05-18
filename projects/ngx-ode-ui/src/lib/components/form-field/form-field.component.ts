@@ -9,6 +9,7 @@ import { OdeComponent } from 'ngx-ode-core';
 export class FormFieldComponent extends OdeComponent {
   @Input() label: string;
   @Input() help: string;
+  @Input() required: boolean;
 
   constructor(injector: Injector) {
     super(injector);
