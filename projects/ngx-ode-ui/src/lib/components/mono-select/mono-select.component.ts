@@ -32,10 +32,10 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
 
     public isDisabled = false;
 
-    public optionClicked(option: SelectOption<K>) {
+    public optionClicked(option?: SelectOption<K>) {
         this.selectedOption = option;
         this.opened = false;
-        this.onChange(this.selectedOption.value);
+        this.onChange(this.selectedOption != null ? this.selectedOption.value : null);
     }
 
     constructor(private elementRef: ElementRef, injector: Injector) {
