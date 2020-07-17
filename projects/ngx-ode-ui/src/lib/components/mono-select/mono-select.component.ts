@@ -26,6 +26,9 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
     @Input()
     public trackByFn: (optionValue: K) => number | string;
 
+    @Input()
+    public translateOptions: boolean = true;
+
     public opened = false;
 
     public selectedOption: SelectOption<K> = null;
