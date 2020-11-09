@@ -2,7 +2,7 @@
   <ul>
     <li class="form-select__options--selected lct-form-select__options--selected">
       <strong>{{selectedOption ? ((translateOptions == true) ? (selectedOption.label | translate) : selectedOption.label) : (placeholder | translate)}}</strong>
-      <ul class="form-select__list lct-form-select__list">
+      <ul class="form-select__list lct-form-select__list" *ngIf="opened">
         <li class="form-select__options lct-form-select__options"
             (click)="$event.stopPropagation(); optionClicked()">{{placeholder | translate}}</li>
         <li class="form-select__options lct-form-select__options"
