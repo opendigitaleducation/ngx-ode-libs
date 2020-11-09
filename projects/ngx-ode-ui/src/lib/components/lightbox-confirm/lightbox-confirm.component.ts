@@ -13,6 +13,7 @@ export class LightboxConfirmComponent extends OdeComponent {
     @Input() cancelText: string = "cancel";
     @Input() confirmText: string = "confirm";
     @Input() extraButtons: Array<String> = [];
+    @Input() disableConfirm: boolean = false;
 
     @Output() onConfirm: EventEmitter<void> =  new EventEmitter<void>();
     @Output() onCancel: EventEmitter<void> =  new EventEmitter<void>();

@@ -4,7 +4,7 @@
     <ng-content></ng-content>
   </div>
   <div class="lightbox-confirm-action">
-    <button (click)="onConfirm.emit()" class="confirm">{{ confirmText | translate }}</button>
+    <button (click)="onConfirm.emit()" [disabled]="disableConfirm" class="confirm">{{ confirmText | translate }}</button>
     <button
       *ngFor="let extraBtn of extraButtons.slice().reverse(); index as i;"
       (click)="onExtra.emit(extraButtons.length - 1 - i)" class="confirm">{{ extraBtn | translate }}</button>
