@@ -33,7 +33,8 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
 
     public selectedOption: SelectOption<K> = null;
 
-    public isDisabled = false;
+    @Input()
+    public disabled = false;
 
     public optionClicked(option?: SelectOption<K>) {
         this.selectedOption = option;
@@ -54,7 +55,7 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
     }
 
     public onClickOnHost() {
-        if (!this.opened && !this.isDisabled) {
+        if (!this.opened && !this.disabled) {
             this.opened = true;
         } else {
             this.opened = false;
@@ -76,7 +77,7 @@ export class MonoSelectComponent<K> extends OdeComponent implements ControlValue
     }
 
     setDisabledState(isDisabled: boolean): void {
-        this.isDisabled = isDisabled;
+        this.disabled = isDisabled;
     }
 
     writeValue(obj: K): void {

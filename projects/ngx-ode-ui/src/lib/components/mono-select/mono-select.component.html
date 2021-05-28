@@ -1,4 +1,4 @@
-<div class="form-select lct-form-select" [ngClass]="{'form-select--opened': opened, 'form-select--disabled': isDisabled}">
+<div class="form-select lct-form-select" [ngClass]="{'form-select--opened': opened, 'form-select--disabled': disabled}">
   <ul>
     <li class="form-select__options--selected lct-form-select__options--selected">
       <strong>{{selectedOption ? ((translateOptions == true) ? (selectedOption.label | translate) : selectedOption.label) : (placeholder | translate)}}</strong>
