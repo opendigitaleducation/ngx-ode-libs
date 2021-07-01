@@ -27,3 +27,13 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Deploying
+
+ng serve is not working for the lib. To build and deploy your modifications to your final app, please execute the following commands from ngx-ode-libs folder:
+- ng build <lib_name>
+- cp -r dist/<lib_name> <app_node_modules_path>/<lib_name>
+
+Example:
+- ng build ngx-ode-ui
+- cp -r dist/ngx-ode-ui ../entcore/admin/src/main/ts/node_modules/ngx-ode-ui
