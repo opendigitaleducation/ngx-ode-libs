@@ -1,3 +1,4 @@
+import { HostBinding } from '@angular/core';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Injector } from '@angular/core';
 import { OdeComponent } from 'ngx-ode-core';
 
@@ -49,6 +50,14 @@ export class MessageBoxComponent extends OdeComponent implements OnInit {
         this._position = value;
     }
 
+    /**
+     * `gravity` set the relative position of the message box if its position is 'absolute'.
+     * No effect when position is 'inherit'.
+     */
+    @Input() gravity: 'left' | 'right' = 'left';
+    @HostBinding('class.gravity-left') get isGravityLeft() { return this.gravity === 'left' }
+    @HostBinding('class.gravity-right') get isGravityRight() { return this.gravity === 'right' }
+
     hidden = false;
     @Output('onHide') hideEvent: EventEmitter<void>;
     canHide(): boolean {
@@ -73,6 +82,7 @@ export class MessageBoxComponent extends OdeComponent implements OnInit {
             // TODO: Maybe use a static counter to push on top the last open MessageBox ?
             this.eltRef.nativeElement.style.zIndex = '10';
         }
+
     }
 }
 

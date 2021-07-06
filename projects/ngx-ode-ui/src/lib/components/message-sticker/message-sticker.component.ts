@@ -13,6 +13,7 @@ export class MessageStickerComponent extends OdeComponent implements OnInit {
     @Input() type: MessageType;
     @Input() header: string;
     @Input() messages: (string | [string, {}])[];
+    @Input() gravity: 'left' | 'right' = 'left';
     @ViewChild(DynamicComponentDirective, { static: false }) dComponent: DynamicComponentDirective;
 
     readonly icons = icons;
@@ -34,6 +35,7 @@ export class MessageStickerComponent extends OdeComponent implements OnInit {
             header: this.header,
             messages: this.messages,
             position: 'absolute',
+            gravity: this.gravity,
             hideEvent: new EventEmitter<void>()
         });
     }
