@@ -2,7 +2,8 @@
   font-size : initial;
   position: inherit;
   top: -5px;
-  right: -5px;
+  &.gravity-left { right: -5px; }
+  &.gravity-right { left: -5px; }
 }
 :host .message {
   border: 1px solid;
