@@ -4,16 +4,23 @@
     <a href="javascript:void(0)" (click)="selectItem(item)" *ngIf="!checkboxMode">
       <i class="opener" (click)="toggleFold($event, item)"
          *ngIf="!isFlattened() && hasChildren(item) && !disableOpener"></i>
-      {{ display(item) }}
+      <span *ngIf="displayProperty">{{ display(item) }}</span>
+      <span *ngIf="displayTemplate">
+        <ng-template [ngTemplateOutlet]="displayTemplate" [ngTemplateOutletContext]="{$implicit: item}"></ng-template>
+      </span>
     </a>
     <div class="checkbox__item" *ngIf="checkboxMode">
       <input id="all" type="checkbox" [(ngModel)]="item.check" ngDefaultControl>
-      <label for="all" (click)="checkItem(item)">{{display(item)}}</label>
+      <label *ngIf="displayProperty" for="all" (click)="checkItem(item)">{{display(item)}}</label>
+      <span *ngIf="displayTemplate">
+        <ng-template [ngTemplateOutlet]="displayTemplate" [ngTemplateOutletContext]="{$implicit: item}"></ng-template>
+      </span>
     </div>
     <ode-item-tree
       [items]="getChildren(item)"
       [children]="childrenProperty"
       [display]="displayProperty"
+      [displayTemplate]="displayTemplate"
       [filter]="filter"
       [order]="order"
       [reverse]="reverse"
