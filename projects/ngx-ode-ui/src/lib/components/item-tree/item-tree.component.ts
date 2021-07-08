@@ -1,5 +1,5 @@
 import { OdeComponent } from 'ngx-ode-core';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild, Injector } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ContentChild, TemplateRef, Injector } from '@angular/core';
 
 @Component({
     selector: 'ode-item-tree',
@@ -20,6 +20,7 @@ export class ItemTreeComponent<T> extends OdeComponent implements OnInit {
     @Input('children') childrenProperty = 'children';
     // Property to display in the list
     @Input('display') displayProperty = 'label';
+    @Input() displayTemplate: TemplateRef<any>;
     // Filter pipe argument
     @Input() filter: (Object | string | Function) = '';
     // OrderBy pipe argument
@@ -110,8 +111,8 @@ export class ItemTreeComponent<T> extends OdeComponent implements OnInit {
         return this.disableOpener ? !this.isSelected(item) : this.unfolded.indexOf(item) < 0;
     }
 
-    public display(item) {
-        return item[this.displayProperty];
+    public display(item: T) {
+        return this.displayProperty && item[this.displayProperty];
     }
 
     public getChildren(item) {
