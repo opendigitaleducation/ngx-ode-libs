@@ -54,6 +54,6 @@ export * from './lib/utils/math';
 export * from './lib/utils/string';
 export * from './lib/utils/testing';
 
-export * from './lib/helpers/accents.helper';
+// export * from './lib/helpers/accents.helper'; // Deprecated. './lib/utils/string' has its own removeAccents()
 
 export * from './lib/ngx-ode-ui.module';
