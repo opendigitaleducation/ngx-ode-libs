@@ -85,6 +85,9 @@ const defaultDiacriticsRemovalMap = [
     {base: 'z', letters: /[\u007A\u24E9\uFF5A\u017A\u1E91\u017C\u017E\u1E93\u1E95\u01B6\u0225\u0240\u2C6C\uA763]/g}
 ];
 
+/**
+ * @deprecated use utils/string.ts removeAccents() instead.
+ */
 export const removeAccents = (str) => {
     for (let i = 0; i < defaultDiacriticsRemovalMap.length; i++) {
         str = str.replace(defaultDiacriticsRemovalMap[i].letters, defaultDiacriticsRemovalMap[i].base);
